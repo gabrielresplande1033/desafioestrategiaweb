@@ -5,11 +5,14 @@ Funcionalidade: Efetuar buscas e visualização de curso do estrategia educacion
 
     COMO usuario do estrategia concursos
     EU QUERO realizar buscas no site
-    A FIM DE encontrar o melhor curso para adquirir
+    Para encontrar o melhor curso para adquir
+
+    Contexto: Página inicial
+        Dado que estou na pagina inicial do estrategia concursos
 
     @busca_por_professor
     Cenario: Busca Por Professor
-        Dado que eu acesso a busca por professor
+        Dado que eu acesso a busca "por professor"
         Quando acessar os cursos da professora "Ena Loiola"
         Então valido que o título esta de acordo com minha busca
         E devo escolher um dos cursos disponíveis para a professora
@@ -18,7 +21,7 @@ Funcionalidade: Efetuar buscas e visualização de curso do estrategia educacion
 
     @busca_por_concurso
     Cenario: Busca Por Concurso
-        Dado que eu acesso a busca por concurso
+        Dado que eu acesso a busca "por concurso"
         Quando acessar os "Concursos de Fisioterapia"
         Então valido que o título esta de acordo com minha busca
         E devo escolher um dos cursos disponíveis de fisioterapia
@@ -27,7 +30,7 @@ Funcionalidade: Efetuar buscas e visualização de curso do estrategia educacion
     
     @busca_por_materia
     Cenário: Busca por Matéria
-        Dado que eu acesso a busca por matéria
+        Dado que eu acesso a busca "por matéria"
         Quando acessar os cursos de "Controle da Administração Pública"
         Então valido que o título esta de acordo com minha busca
         E devo escolher um dos cursos disponíveis para administração
@@ -36,7 +39,7 @@ Funcionalidade: Efetuar buscas e visualização de curso do estrategia educacion
 
     @busca_por_regiao
     Cenário: Busca por Região
-        Dado que eu acesso a busca por região
+        Dado que eu acesso a busca "POR REGIÃO"
         Quando acessar os cursos da região "Mato Grosso do Sul"
         Então devo escolher um dos concursos disponíveis para a região
         E devo escolher um dos cursos disponíveis
@@ -45,7 +48,7 @@ Funcionalidade: Efetuar buscas e visualização de curso do estrategia educacion
 
     @busca_ver_todos
     Cenário: Busca por Ver Todos
-        Dado que eu acesso a busca por ver todos
+        Dado que eu acesso a busca "ver todos"
         Quando acessar um dos concursos que é exibido na listagem
         Então devo escolher um dos cursos disponíveis
         E devo validar que o valor da página de detalhes do curso é o mesmo que consta na listagem

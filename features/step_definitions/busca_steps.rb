@@ -1,5 +1,9 @@
-Dado('que eu acesso a busca por professor') do
-    @header.busca_por_professor
+Dado('que eu acesso a busca {string}') do |tipo_busca|
+    @header.busca_por(tipo_busca.upcase)
+end
+
+Dado('que estou na pagina inicial do estrategia concursos') do
+    @header.home_page
 end
 
 Quando('acessar os cursos da professora {string}') do |nome|
@@ -8,21 +12,21 @@ Quando('acessar os cursos da professora {string}') do |nome|
 end
 
 Então('devo escolher um dos cursos disponíveis para a professora') do
-    @valor = @professor.retornar_valor_na_listagem()
-    @parcelas = @professor.retornar_numero_parcelas()
+    @valor = @professor.retornar_valor_na_listagem
+    @parcelas = @professor.retornar_numero_parcelas
     @total = '%.2f' % (@valor * @parcelas)
-    @professor.selecionar_primeiro_curso()
+    @professor.selecionar_primeiro_curso
 end
 
 Então('devo validar que o valor da página de detalhes do curso é o mesmo que consta na listagem') do
     if(@parcelas == 12)
-        @valor_detalhes = @professor.retornar_valor_pagina_detalhes()
+        @valor_detalhes = @professor.retornar_valor_pagina_detalhes
         expect(@valor).to eql(@valor_detalhes)
     end
 end
 
 Então('devo validar que o valor parcelado também está de acordo com o valor total do curso') do
-    @valor_total_detalhes = @professor.retornar_valor_total_pagina_detalhes()
+    @valor_total_detalhes = @professor.retornar_valor_total_pagina_detalhes
     puts @valor_total_detalhes
     puts @total
     expect(@total).to eql(@valor_total_detalhes)
@@ -38,10 +42,10 @@ Quando('acessar os {string}') do |curso|
 end
 
 Então('devo escolher um dos cursos disponíveis de fisioterapia') do
-    @valor = @concurso.retornar_valor_na_listagem()
-    @parcelas = @concurso.retornar_numero_parcelas()
+    @valor = @concurso.retornar_valor_na_listagem
+    @parcelas = @concurso.retornar_numero_parcelas
     @total = '%.2f' % (@valor * @parcelas)
-    @concurso.selecionar_primeiro_curso()
+    @concurso.selecionar_primeiro_curso
 end
 
 Dado('que eu acesso a busca por matéria') do
@@ -54,10 +58,10 @@ Quando('acessar os cursos de {string}') do |materia|
 end
 
 Então('devo escolher um dos cursos disponíveis para administração') do
-    @valor = @materia.retornar_valor_na_listagem()
-    @parcelas = @materia.retornar_numero_parcelas()
+    @valor = @materia.retornar_valor_na_listagem
+    @parcelas = @materia.retornar_numero_parcelas
     @total = '%.2f' % (@valor * @parcelas)
-    @materia.selecionar_quarto_curso()
+    @materia.selecionar_quarto_curso
 end
 
 Dado('que eu acesso a busca por região') do
@@ -70,10 +74,10 @@ Quando('acessar os cursos da região {string}') do |regiao|
 end
 
 Então('devo escolher um dos cursos disponíveis para a região') do
-    @valor = @regiao.retornar_valor_na_listagem()
-    @parcelas = @regiao.retornar_numero_parcelas()
+    @valor = @regiao.retornar_valor_na_listagem
+    @parcelas = @regiao.retornar_numero_parcelas
     @total = '%.2f' % (@valor * @parcelas)
-    @regiao.selecionar_quarto_curso()
+    @regiao.selecionar_quarto_curso
 end
 
 Então('devo escolher um dos concursos disponíveis para a região') do
@@ -81,10 +85,10 @@ Então('devo escolher um dos concursos disponíveis para a região') do
 end
 
 Então('devo escolher um dos cursos disponíveis') do
-    @valor = @regiao.retornar_valor_na_listagem()
-    @parcelas = @regiao.retornar_numero_parcelas()
+    @valor = @regiao.retornar_valor_na_listagem
+    @parcelas = @regiao.retornar_numero_parcelas
     @total =  '%.2f' % (@valor * @parcelas)
-    @regiao.selecionar_primeiro_curso()
+    @regiao.selecionar_primeiro_curso
 end
 
 Dado('que eu acesso a busca por ver todos') do
@@ -100,17 +104,13 @@ Então('valido que o título esta de acordo com minha busca') do
     expect(@nome).to eql(@nome_titulo)
 end
 
-Dado('que estou na pagina inicial do estrategia concursos') do
-    @header.home_page
-end
-
 Quando('eu realizar uma busca utilizando o search para {string}') do |string|
     @search.buscar_pelo_search(string)
 end
 
 Então('devo escolher um dos cursos disponíveis para minha busca') do
-    @valor = @search.retornar_valor_na_listagem()
-    @parcelas = @search.retornar_numero_parcelas()
+    @valor = @search.retornar_valor_na_listagem
+    @parcelas = @search.retornar_numero_parcelas
     @total = '%.2f' % (@valor * @parcelas)
-    @search.selecionar_curso()
+    @search.selecionar_curso
 end

@@ -10,23 +10,19 @@ class SearchPage
 
     def retornar_valor_na_listagem()
         @texto = find('body > div.js-search-page > div > div > div.page-result-list > section:nth-child(1) > span').text
-        if(@texto.index(/cursos/).nil?)
-            @parcela = 1
-        else
-            @parcela = 12
-        end
         @match = @texto.match(/(\d{1,6}\.?)+(,\d{2})/)
         @valor = @match.to_s
+        puts @valor
         @valor = @valor.gsub('.', '')
         @valor = @valor.gsub(',', '.')
-        puts @valor
+        
         @valor = @valor.to_f
         return @valor.to_f
     end
 
     def retornar_numero_parcelas()
         @texto = find('body > div.js-search-page > div > div > div.page-result-list > section:nth-child(1) > span').text
-        if(@texto.index(/cursos/).nil?)
+        if(@texto.index(/12x/).nil?)
             @parcela = 1
         else
             @parcela = 12

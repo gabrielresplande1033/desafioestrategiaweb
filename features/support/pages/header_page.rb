@@ -1,28 +1,15 @@
 class HeaderPage
     include Capybara::DSL
-
+  
     def home_page
-        visit 'https://www.estrategiaconcursos.com.br/'
+      visit '/'
     end
-
-    def busca_por_professor
-        visit 'https://www.estrategiaconcursos.com.br/cursos/professor/'
+  
+    def header
+      find('div.nav-header-links')
     end
-
-    def busca_por_materia
-        visit 'https://www.estrategiaconcursos.com.br/cursos/materia/'
+  
+    def busca_por(busca)
+      header.find('a', text: busca).click
     end
-    
-    def busca_por_concurso
-        visit 'https://www.estrategiaconcursos.com.br/cursos/concurso/'
-    end
-
-    def busca_por_regiao
-        visit 'https://www.estrategiaconcursos.com.br/cursos/regiao/'
-    end
-
-    def busca_ver_todos
-        visit 'https://www.estrategiaconcursos.com.br/cursos/'
-    end
-
-end
+  end
