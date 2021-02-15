@@ -20,15 +20,13 @@ end
 
 Então('devo validar que o valor da página de detalhes do curso é o mesmo que consta na listagem') do
     if(@parcelas == 12)
-        @valor_detalhes = @professor.retornar_valor_pagina_detalhes
+        @valor_detalhes = @pagina_detalhes.retornar_valor_pagina_detalhes
         expect(@valor).to eql(@valor_detalhes)
     end
 end
 
 Então('devo validar que o valor parcelado também está de acordo com o valor total do curso') do
-    @valor_total_detalhes = @professor.retornar_valor_total_pagina_detalhes
-    puts @valor_total_detalhes
-    puts @total
+    @valor_total_detalhes = @pagina_detalhes.retornar_valor_total_pagina_detalhes
     expect(@total).to eql(@valor_total_detalhes)
 end
 

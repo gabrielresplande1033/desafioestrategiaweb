@@ -30,7 +30,7 @@ Funcionalidade: Efetuar buscas e visualização de curso do estrategia educacion
     
     @busca_por_materia
     Cenário: Busca por Matéria
-        Dado que eu acesso a busca "por matéria"
+        Dado que eu acesso a busca "POR MATÉRIA"
         Quando acessar os cursos de "Controle da Administração Pública"
         Então valido que o título esta de acordo com minha busca
         E devo escolher um dos cursos disponíveis para administração
