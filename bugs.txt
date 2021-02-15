@@ -1,0 +1,3 @@
+1 - Não foram encontrados bugs de fato na plataforma web. Porém, dado o dinamismo do site com diversas sessões, seria
+interessante o uso de um id dinâmico (Por exemplo, na listagem de cursos "Por Concurso"). Tanto
+facilitaria na criação de novos testes, quanto deixaria-os mais assertivos.
